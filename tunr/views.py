@@ -10,3 +10,14 @@ def artist_list(request):
 def song_list(request):
     songs = Song.objects.all()
     return render(request, 'tunr/song_list.html', {'songs': songs})
+
+
+# tunr/views.py
+def artist_detail(request, pk):
+    artist = Artist.objects.get(id=pk)
+    return render(request, 'tunr/artist_detail.html', {'artist': artist})
+
+
+def song_detail(request, pk):
+    song = Song.objects.get(id=pk)
+    return render(request, 'tunr/song_detail.html', {'song': song})
